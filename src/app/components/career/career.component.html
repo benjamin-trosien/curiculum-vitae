@@ -1,0 +1,26 @@
+<h1>{{ title }}</h1>
+<ng-container *ngFor="let job of career">
+    <mat-divider></mat-divider>
+    <section>
+        <h2>{{ job.title }}</h2>
+        <h3>{{ job.employer }}</h3>
+
+        <div class="job">
+            <mat-list *ngIf="job.start">
+                <mat-list-item>
+                    <div mat-line>{{ job.start | date:'MM.yyyy' }} -</div>
+                </mat-list-item>
+                <mat-list-item>
+                    <div mat-line>{{ (job.end | date:'MM.yyyy') ?? 'Heute' }}</div>
+                </mat-list-item>
+            </mat-list>
+
+            <mat-list class="tasks">
+                <mat-list-item *ngFor="let task of job.tasks">
+                    <mat-icon mat-list-icon>code</mat-icon>
+                    <div mat-line>{{ task }}</div>
+                </mat-list-item>
+            </mat-list>
+        </div>
+    </section>
+</ng-container>

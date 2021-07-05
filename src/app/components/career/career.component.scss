@@ -1,0 +1,56 @@
+$period-width: 30mm;
+
+:host {
+    display: flex;
+    flex-direction: column;
+    color: var(--color-primary);
+}
+
+h1 {
+    margin: 0;
+    padding: 5mm;
+    font-weight: bold;
+    // background-color: var(--color-primary-inverse);
+}
+
+h2 {
+    margin-bottom: 0;
+}
+
+h3 {
+    font-style: italic;
+    line-height: 1;
+    margin-bottom: 0;
+}
+
+section {
+    padding: 5mm;
+
+    &:nth-child(even) {
+        // background-color: var(--color-primary-inverse);
+    }
+
+    mat-divider {
+        margin-bottom: 5mm;
+    }
+}
+
+.job {
+    display: flex;
+    flex-direction: row;
+
+    .period {
+        flex-basis: $period-width;
+        flex-grow: 0;
+        flex-shrink: 0;
+    }
+
+    mat-list-item {
+        height: 22px !important;
+        font-size: 14px;
+
+        ::ng-deep .mat-list-item-content {
+            padding-left: 0 !important;
+        }
+    }
+}
