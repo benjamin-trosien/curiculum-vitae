@@ -1,6 +1,6 @@
 export enum SkillType {
-    LEVEL,
-    VALUE,
+    LEVEL = 'LEVEL',
+    VALUE = 'VALUE',
 }
 
 export interface Skill {

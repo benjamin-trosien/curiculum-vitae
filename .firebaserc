@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "curiculum-vitae-5f360": {
+      "hosting": {
+        "curiculum-vitae": [
+          "curiculum-vitae-5f360"
+        ]
+      }
+    }
+  }
+}

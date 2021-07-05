@@ -2,8 +2,10 @@ import {
     Observable,
     of,
 } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { Injectable } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 import { Career } from '../models/career';
 import { Person } from '../models/person';
@@ -16,11 +18,15 @@ import {
     providedIn: 'root',
 })
 export class PersonService {
-    getPerson(): Observable<Person> {
-        return of({
-            name: 'Benjamin Trosien',
-            job: 'Software Developer',
-        });
+
+    constructor(
+        private firestore: AngularFirestore,
+    ) { }
+
+    getPerson(id: string): Observable<Person> {
+        return this.firestore.doc<any>(`personal/${ id }`).valueChanges().pipe(
+            map((doc = {}) => ({ name: doc?.name, job: doc?.job })),
+        );
     }
 
     getSkills(): Observable<Skill[]> {
