@@ -1,0 +1,51 @@
+$skill-width: 30%;
+
+:host {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: silver;
+    min-height: 100%;
+    padding: 20px;
+
+    @media print {
+        display: inline;
+        padding: 0;
+    }
+}
+
+.paper {
+    height: 297mm;
+    width: 210mm;
+    background-color: white;
+    box-shadow: 5px 5px 15px 5px black;
+    margin-bottom: 1cm;
+    // padding: 25mm 25mm 20mm;
+
+    display: flex;
+    flex-direction: row;
+
+    @media print {
+        box-shadow: none;
+        -webkit-print-color-adjust: exact;
+    }
+
+    app-skills {
+        flex-basis: $skill-width;
+    }
+
+    app-career {
+        flex-grow: 1;
+    }
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    app-career {
+        flex-grow: 0;
+    }
+}

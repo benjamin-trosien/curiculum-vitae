@@ -1,0 +1,38 @@
+<div class="paper">
+    <app-skills
+        [person]="(person$ | async)!"
+        [skills]="(skills$ | async)!"
+    ></app-skills>
+    <app-career
+        title="Berufserfahrung"
+        [career]="(career$ | async)!"
+    ></app-career>
+</div>
+
+<div class="paper">
+    <app-skills
+        [person]="(person$ | async)!"
+        [skills]="(skills$ | async)!"
+    ></app-skills>
+    <app-career
+        title="Ausbildung"
+        [career]="(education$ | async)!"
+    ></app-career>
+</div>
+
+<div class="paper">
+    <app-skills
+        [person]="(person$ | async)!"
+        [skills]="(skills$ | async)!"
+    ></app-skills>
+    <div class="column">
+        <app-career
+            title="Abschlüsse und Zertifikate"
+            [career]="(degrees$ | async)!"
+        ></app-career>
+        <app-career
+            title="Persönliche Interessen"
+            [career]="(interests$ | async)!"
+        ></app-career>
+    </div>
+</div>

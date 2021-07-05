@@ -16,7 +16,7 @@ import {
     loadPersonEndedAction,
     loadPersonFailedAction,
     loadPersonStartedAction,
-} from '../app.actions';
+} from '../curiculum-vitae.actions';
 import { PersonService } from '../services/person.service';
 
 @Injectable()

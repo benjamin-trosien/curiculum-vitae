@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-import { loadPersonStartedAction } from './app.actions';
+import { loadPersonStartedAction } from './curiculum-vitae/curiculum-vitae.actions';
 
 @Injectable({
     providedIn: 'root',
