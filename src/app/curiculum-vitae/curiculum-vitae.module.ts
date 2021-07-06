@@ -1,43 +1,37 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTabsModule } from '@angular/material/tabs';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 
-import { CareerComponent } from './components/career/career.component';
-import { DegreesComponent } from './components/degrees/degrees.component';
-import { LayoutComponent } from './components/layout/layout.component';
-import { SkillsComponent } from './components/skills/skills.component';
+import { UiComponentsModule } from '../ui-components/ui-components.module';
+import { PersonSelectionComponent } from './components/person-selection/person-selection.component';
+import { PersonComponent } from './components/person/person.component';
 import { CuriculumVitaeRoutingModule } from './curiculum-vitae-routing.module';
 import {
     CURICULUM_VITAE_FEATURE_KEY,
     reducer,
 } from './curiculum-vitae.reducer';
-import { LoadPersonEffects } from './effects/load-person';
+import { LoadPersonsEffects } from './effects/load-persons';
+import { LoadSkillsEffects } from './effects/load-skills';
 
 @NgModule({
     declarations: [
-        CareerComponent,
-        LayoutComponent,
-        DegreesComponent,
-        SkillsComponent,
+        PersonComponent,
+        PersonSelectionComponent,
     ],
     imports: [
         CommonModule,
         CuriculumVitaeRoutingModule,
         EffectsModule.forFeature([
-            LoadPersonEffects,
+            LoadPersonsEffects,
+            LoadSkillsEffects,
         ]),
-        MatDividerModule,
-        MatIconModule,
-        MatListModule,
-        MatProgressBarModule,
-        MatTableModule,
+        MatButtonModule,
+        MatTabsModule,
         StoreModule.forFeature(CURICULUM_VITAE_FEATURE_KEY, reducer),
+        UiComponentsModule,
     ]
 })
 export class CuriculumVitaeModule { }

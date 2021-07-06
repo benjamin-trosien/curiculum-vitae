@@ -22,16 +22,15 @@ $app-theme: mat-light-theme($app-primary, $app-accent, $app-warn);
 
 $primary: map-get($app-theme, primary);
 $accent: map-get($app-theme, accent);
+// $primary-darken: darken($primary, 10%);
 
 :root {
-    //   --color-primary: #{mat-color($app-primary)};
-    //   --color-accent: #{mat-color($app-accent)};
-    //   --color-warn: #{mat-color($app-warn)};
-    //   --color-success: #{mat-color($app-success)};
-    --color-primary: #333;
-    --color-primary-darker: #222;
-    --color-primary-lighter: #444;
+    --color-primary: #{mat-color($app-primary)};
+    --color-accent: #{mat-color($app-accent)};
+    --color-warn: #{mat-color($app-warn)};
+    --color-success: #{mat-color($app-success)};
     --color-primary-inverse: #ccc;
+    --color-primary-darker: #{mat-color($app-primary, 900)};
 }
 
 html,

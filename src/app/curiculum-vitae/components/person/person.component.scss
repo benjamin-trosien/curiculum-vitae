@@ -21,7 +21,6 @@ $skill-width: 30%;
     background-color: white;
     box-shadow: 5px 5px 15px 5px black;
     margin-bottom: 1cm;
-    // padding: 25mm 25mm 20mm;
 
     display: flex;
     flex-direction: row;
@@ -31,7 +30,7 @@ $skill-width: 30%;
         -webkit-print-color-adjust: exact;
     }
 
-    app-skills {
+    app-outline {
         flex-basis: $skill-width;
     }
 

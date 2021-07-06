@@ -22,51 +22,44 @@ h2 {
 h3 {
     background-color: var(--color-primary-darker);
     padding: 0 $space;
-    margin-bottom: calc(#{$space} / 2);
+    margin-bottom: 0;
     line-height: 3;
 }
 
 img {
     width: 100%;
     height: auto;
-    margin-bottom: $space;
 }
 
-ul {
-    padding: 0 $space;
-}
-
-section:not(:last-child) {
-    margin-bottom: calc(#{$space} * 2);
-}
-
-.skill {
+section {
     &:not(:last-child) {
-        margin-bottom: $space;
+        margin-bottom: calc(#{ $space * 2 });
     }
+}
 
-    &--value {
-        p:nth-child(odd) {
+.personal {
+    padding: 0 $space;
+
+    p {
+        &:nth-child(odd) {
             margin-bottom: 0;
             line-height: 1;
             font-weight: bold;
         }
 
-        p:nth-child(even) {
-            // font-style: italic;
-        }
-    }
-
-    &--level {
-        display: flex;
-        flex-direction: column;
-
-        p {
+        &:last-child {
             margin-bottom: 0;
         }
     }
 }
 
-mat-progress-bar {
-    height: 10px;
+.skills {
+    div {
+        padding: 0 $space;
+
+        p {
+            margin-top: $space;
+            margin-bottom: 0;
+        }
+    }
 }

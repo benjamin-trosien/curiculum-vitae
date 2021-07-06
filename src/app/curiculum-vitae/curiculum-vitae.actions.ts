@@ -4,7 +4,14 @@ import {
 } from '@ngrx/store';
 
 import { Person } from './models/person';
+import { Skill } from './models/skill';
 
-export const loadPersonEndedAction = createAction('[App] Load Person Ended', props<{ person: Person }>());
-export const loadPersonFailedAction = createAction('[App] Load Person Failed');
-export const loadPersonStartedAction = createAction('[App] Load Person Started', props<{ id: string }>());
+export const loadPersonListEndedAction = createAction('[App] Load Person List Ended', props<{ personList: Person[] }>());
+export const loadPersonListFailedAction = createAction('[App] Load Person List Failed', props<{ error: any }>());
+export const loadPersonListStartedAction = createAction('[App] Load Person List Started');
+
+export const loadSkillListEndedAction = createAction('[App] Load SkillLList Ended', props<{ skillList: Skill[] }>());
+export const loadSkillListFailedAction = createAction('[App] Load SkillLList Failed');
+export const loadSkillListStartedAction = createAction('[App] Load SkillLList Started');
+
+export const selectPersonAction = createAction('[App] Select Person', props<{ index: number }>());

@@ -4,14 +4,29 @@ import {
     Routes,
 } from '@angular/router';
 
-import { LayoutComponent } from './components/layout/layout.component';
-import { PersonResolver } from './resolver/person.resolver';
+import { PersonSelectionComponent } from './components/person-selection/person-selection.component';
+import { PersonComponent } from './components/person/person.component';
+import { PersonListResolver } from './resolver/person-list.resolver';
+import { SelectedPersonResolver } from './resolver/selected-person.resolver';
+import { SkillListResolver } from './resolver/skills-list.resolver';
 
 const routes: Routes = [
     {
         path: '',
-        component: LayoutComponent,
-        resolve: { person: PersonResolver },
+        component: PersonSelectionComponent,
+        resolve: {
+            person: PersonListResolver,
+            skills: SkillListResolver,
+        },
+        children: [
+            {
+                path: 'person/:index',
+                component: PersonComponent,
+                resolve: {
+                    selectedPerson: SelectedPersonResolver,
+                },
+            },
+        ],
     },
 ];
 
@@ -19,5 +34,8 @@ const routes: Routes = [
     imports: [
         RouterModule.forChild(routes),
     ],
+    exports: [
+        RouterModule,
+    ]
 })
 export class CuriculumVitaeRoutingModule { }

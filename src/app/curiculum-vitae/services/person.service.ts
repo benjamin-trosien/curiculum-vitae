@@ -10,8 +10,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { Career } from '../models/career';
 import { Person } from '../models/person';
 import {
+    Item,
     Skill,
-    SkillType,
 } from '../models/skill';
 
 @Injectable({
@@ -23,81 +23,111 @@ export class PersonService {
         private firestore: AngularFirestore,
     ) { }
 
-    getPerson(id: string): Observable<Person> {
-        return this.firestore.doc<any>(`personal/${ id }`).valueChanges().pipe(
-            map((doc = {}) => ({ name: doc?.name, job: doc?.job })),
+    private parseSkillItem = (rawItem: any = {}): Item => {
+        return {
+            label: rawItem.label,
+            level: Math.max(1, Math.min(rawItem.level, 5)),
+        };
+    }
+
+    private parseSkill = (rawSkill: any = {}): Skill => {
+        return {
+            items: rawSkill?.items?.map(this.parseSkillItem),
+            title: rawSkill.title,
+        };
+    }
+
+    private parsePerson = (rawPerson: any = {}): Person => {
+        return {
+            name: rawPerson?.name,
+            personal: rawPerson?.personal,
+            title: rawPerson?.title,
+            skillList: rawPerson?.skills?.map(this.parseSkill),
+        };
+    }
+
+    getPersonList = (): Observable<Person[]> => {
+        return this.firestore.collection('person', (ref) => ref.orderBy('createdAt', 'asc')).valueChanges().pipe(
+            map((docs = []) => docs.map(this.parsePerson)),
         );
     }
 
-    getSkills(): Observable<Skill[]> {
-        return of([
-            {
-                type: SkillType.VALUE,
-                items: [
-                    {
-                        label: 'Wohnort',
-                        value: 'Carl-Herz-Ufer 25, 10961 Berlin',
-                    },
-                    {
-                        label: 'Geburtsdatum, Ort',
-                        value: '19.02.1984, Berlin',
-                    },
-                    {
-                        label: 'Telefon',
-                        value: '0176 212 34 670',
-                    },
-                    {
-                        label: 'Email',
-                        value: 'benjamin.trosien@gmail.com',
-                    },
-                    {
-                        label: 'Staatsangehörigkeit',
-                        value: 'deutsch',
-                    },
-                    {
-                        label: 'Familienstand',
-                        value: 'ledig',
-                    },
-                ],
-            },
-            {
-                title: 'Technologien',
-                type: SkillType.LEVEL,
-                items: [
-                    {
-                        label: 'Angular (2-10)',
-                        level: 5,
-                    },
-                    {
-                        label: 'Typescript / Javascript',
-                        level: 5,
-                    },
-                    {
-                        label: 'HTML / CSS',
-                        level: 5,
-                    },
-                    {
-                        label: 'Java / Springboot',
-                        level: 3,
-                    },
+    getSkills = (): Observable<Skill[]> => {
+        return this.firestore.collection<any>('skill').valueChanges().pipe(
+            map((skills = []) => {
+                return skills.map(({ type, title, items }) => {
+                    return { type, title, items };
+                });
+            }),
+        );
+        // return of([
+        //     {
+        //         type: SkillType.VALUE,
+        //         items: [
+        //             {
+        //                 label: 'Wohnort',
+        //                 value: 'Carl-Herz-Ufer 25, 10961 Berlin',
+        //             },
+        //             {
+        //                 label: 'Geburtsdatum, Ort',
+        //                 value: '19.02.1984, Berlin',
+        //             },
+        //             {
+        //                 label: 'Telefon',
+        //                 value: '0176 212 34 670',
+        //             },
+        //             {
+        //                 label: 'Email',
+        //                 value: 'benjamin.trosien@gmail.com',
+        //             },
+        //             {
+        //                 label: 'Staatsangehörigkeit',
+        //                 value: 'deutsch',
+        //             },
+        //             {
+        //                 label: 'Familienstand',
+        //                 value: 'ledig',
+        //             },
+        //         ],
+        //     },
+        //     {
+        //         title: 'Technologien',
+        //         type: SkillType.LEVEL,
+        //         items: [
+        //             {
+        //                 label: 'Angular (2-10)',
+        //                 level: 5,
+        //             },
+        //             {
+        //                 label: 'Typescript / Javascript',
+        //                 level: 5,
+        //             },
+        //             {
+        //                 label: 'HTML / CSS',
+        //                 level: 5,
+        //             },
+        //             {
+        //                 label: 'Java / Springboot',
+        //                 level: 3,
+        //             },
 
-                ],
-            },
-            {
-                title: 'Sprachen',
-                type: SkillType.LEVEL,
-                items: [
-                    {
-                        label: 'Deutsch',
-                        level: 5,
-                    },
-                    {
-                        label: 'Englisch',
-                        level: 4,
-                    },
-                ],
-            },
-        ]);
+        //         ],
+        //     },
+        //     {
+        //         title: 'Sprachen',
+        //         type: SkillType.LEVEL,
+        //         items: [
+        //             {
+        //                 label: 'Deutsch',
+        //                 level: 5,
+        //             },
+        //             {
+        //                 label: 'Englisch',
+        //                 level: 4,
+        //             },
+        //         ],
+        //     },
+        // ]);
     }
 
     getCareer(): Observable<Career[]> {

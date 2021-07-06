@@ -4,8 +4,7 @@ import {
     Input,
 } from '@angular/core';
 
-import { Career } from '../../models/career';
-import { Degree } from '../../models/degree';
+import { Career } from '../../curiculum-vitae/models/career';
 
 @Component({
     selector: 'app-career',
@@ -20,7 +19,4 @@ export class CareerComponent {
 
     @Input()
     career!: Career[];
-
-    @Input()
-    degrees!: Degree[];
 }

@@ -1,8 +1,10 @@
 <div class="paper">
-    <app-skills
-        [person]="(person$ | async)!"
-        [skills]="(skills$ | async)!"
-    ></app-skills>
+    <app-outline
+        [name]="(name$ | async)!"
+        [title]="(title$ | async)!"
+        [personal]="(personal$ | async)!"
+        [skills]="(skillList$ | async)!"
+    ></app-outline>
     <app-career
         title="Berufserfahrung"
         [career]="(career$ | async)!"
@@ -10,10 +12,12 @@
 </div>
 
 <div class="paper">
-    <app-skills
-        [person]="(person$ | async)!"
-        [skills]="(skills$ | async)!"
-    ></app-skills>
+    <app-outline
+        [name]="(name$ | async)!"
+        [title]="(title$ | async)!"
+        [personal]="(personal$ | async)!"
+        [skills]="(skillList$ | async)!"
+    ></app-outline>
     <app-career
         title="Ausbildung"
         [career]="(education$ | async)!"
@@ -21,10 +25,12 @@
 </div>
 
 <div class="paper">
-    <app-skills
-        [person]="(person$ | async)!"
-        [skills]="(skills$ | async)!"
-    ></app-skills>
+    <app-outline
+        [name]="(name$ | async)!"
+        [title]="(title$ | async)!"
+        [personal]="(personal$ | async)!"
+        [skills]="(skillList$ | async)!"
+    ></app-outline>
     <div class="column">
         <app-career
             title="Abschlüsse und Zertifikate"

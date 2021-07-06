@@ -13,20 +13,20 @@ import {
 } from '@ngrx/effects';
 
 import {
-    loadPersonEndedAction,
-    loadPersonFailedAction,
-    loadPersonStartedAction,
+    loadPersonListEndedAction,
+    loadPersonListFailedAction,
+    loadPersonListStartedAction,
 } from '../curiculum-vitae.actions';
 import { PersonService } from '../services/person.service';
 
 @Injectable()
-export class LoadPersonEffects {
+export class LoadPersonsEffects {
 
     loadPerson$ = createEffect(() => this.actions$.pipe(
-        ofType(loadPersonStartedAction),
-        switchMap(({ id }) => this.service.getPerson(id).pipe(
-            map((person) => loadPersonEndedAction({ person })),
-            catchError(() => of(loadPersonFailedAction())),
+        ofType(loadPersonListStartedAction),
+        switchMap(() => this.service.getPersonList().pipe(
+            map((persons) => loadPersonListEndedAction({ personList: persons })),
+            catchError((error) => of(loadPersonListFailedAction({ error }))),
         )),
     ));
 

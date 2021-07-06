@@ -3,21 +3,21 @@ import {
     TestBed,
 } from '@angular/core/testing';
 
-import { SkillsComponent } from './skills.component';
+import { OutlineComponent } from './outline.component';
 
 describe('SkillsComponent', () => {
-  let component: SkillsComponent;
-  let fixture: ComponentFixture<SkillsComponent>;
+  let component: OutlineComponent;
+  let fixture: ComponentFixture<OutlineComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SkillsComponent ]
+      declarations: [ OutlineComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SkillsComponent);
+    fixture = TestBed.createComponent(OutlineComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

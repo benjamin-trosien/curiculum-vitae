@@ -1,0 +1,21 @@
+<h1>{{ name }}</h1>
+<h2>{{ title }}</h2>
+
+<img src="assets/photo.jpg" alt="photo">
+
+<section class="personal">
+    <ng-container *ngFor="let info of personal">
+        <ng-container *ngFor="let item of info | keyvalue">
+            <p>{{ item.key }}</p>
+            <p>{{ item.value }}</p>
+        </ng-container>
+    </ng-container>
+</section>
+
+<section class="skills" *ngFor="let skill of skills">
+    <h3>{{ skill.title }}</h3>
+    <div *ngFor="let item of skill.items">
+        <p>{{ item.label }}</p>
+        <app-rating-bar [rating]="item.level"></app-rating-bar>
+    </div>
+</section>

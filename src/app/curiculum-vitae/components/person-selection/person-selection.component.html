@@ -1,0 +1,23 @@
+<!-- <ng-container *ngFor="let person of personList$ | async; let index = index">
+    <a [routerLink]="[ 'person', index ]">
+        <button mat-raised-button color="primary">{{ person.name }}</button>
+    </a>
+</ng-container> -->
+
+<mat-tab-group mat-align-tabs="start" backgroundColor="primary" (selectedTabChange)="resolvePerson($event)">
+    <ng-container *ngFor="let person of personList$ | async; let index = index">
+        <mat-tab [label]="person.name">
+            <router-outlet></router-outlet>
+        </mat-tab>
+    </ng-container>
+</mat-tab-group>
+
+
+<!-- <nav mat-tab-nav-bar>
+  <a
+    mat-tab-link
+    (click)="activeLink = person"
+    [active]="activeLink == person"
+    *ngFor="let person of personList$ | async; let index = index" [routerLink]="[ 'person', index ]">{{ person.name }}</a>
+</nav>
+<router-outlet></router-outlet> -->
