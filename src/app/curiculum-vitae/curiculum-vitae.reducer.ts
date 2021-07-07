@@ -6,13 +6,15 @@ import {
 } from '@ngrx/store';
 
 import {
+    Person,
+    Skill,
+} from '../shared/models/person';
+import {
     loadPersonListEndedAction,
     loadPersonListFailedAction,
     loadSkillListEndedAction,
     selectPersonAction,
 } from './curiculum-vitae.actions';
-import { Person } from './models/person';
-import { Skill } from './models/skill';
 
 export const CURICULUM_VITAE_FEATURE_KEY = 'curiculumVitae';
 
@@ -35,15 +37,7 @@ export const reducer = createReducer(
 
     on(loadPersonListEndedAction, (state, { personList }) => ({
         ...state,
-        personList: [
-            ...personList,
-            {
-                name: 'Max Mustermann',
-                personal: [],
-                title: 'Muster Job',
-                skillList: [],
-            },
-        ],
+        personList,
     })),
 
     on(loadSkillListEndedAction, (state, { skillList }) => ({
@@ -68,7 +62,12 @@ const getFeature = createFeatureSelector<any, CuriculumVitaeState>(CURICULUM_VIT
 export const getPersonList = createSelector(getFeature, (state) => state?.personList);
 export const getSelectedIndex = createSelector(getFeature, (state) => state?.selectedIndex);
 export const getSelectedPerson = createSelector(getPersonList, getSelectedIndex, (list, index) => list[ index ]);
+export const getCareer = createSelector(getSelectedPerson, (person) => person?.career);
+export const getDegreeList = createSelector(getSelectedPerson, (person) => person?.degreeList);
+export const getEducation = createSelector(getSelectedPerson, (person) => person?.education);
+export const getInterestList = createSelector(getSelectedPerson, (person) => person?.interestList);
 export const getName = createSelector(getSelectedPerson, (person) => person?.name);
 export const getPersonal = createSelector(getSelectedPerson, (person) => person?.personal);
+export const getPhoto = createSelector(getSelectedPerson, (person) => person?.photo);
 export const getSkillList = createSelector(getSelectedPerson, (person) => person?.skillList);
 export const getTitle = createSelector(getSelectedPerson, (person) => person?.title);

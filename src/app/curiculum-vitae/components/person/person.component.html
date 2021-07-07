@@ -3,6 +3,7 @@
         [name]="(name$ | async)!"
         [title]="(title$ | async)!"
         [personal]="(personal$ | async)!"
+        [photo]="(photo$ | async)!"
         [skills]="(skillList$ | async)!"
     ></app-outline>
     <app-career
@@ -16,6 +17,7 @@
         [name]="(name$ | async)!"
         [title]="(title$ | async)!"
         [personal]="(personal$ | async)!"
+        [photo]="(photo$ | async)!"
         [skills]="(skillList$ | async)!"
     ></app-outline>
     <app-career
@@ -29,16 +31,17 @@
         [name]="(name$ | async)!"
         [title]="(title$ | async)!"
         [personal]="(personal$ | async)!"
+        [photo]="(photo$ | async)!"
         [skills]="(skillList$ | async)!"
     ></app-outline>
     <div class="column">
         <app-career
             title="Abschlüsse und Zertifikate"
-            [career]="(degrees$ | async)!"
+            [career]="(degreeList$ | async)!"
         ></app-career>
         <app-career
             title="Persönliche Interessen"
-            [career]="(interests$ | async)!"
+            [career]="(interestList$ | async)!"
         ></app-career>
     </div>
 </div>

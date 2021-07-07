@@ -5,7 +5,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 
-import { UiComponentsModule } from '../ui-components/ui-components.module';
+import { SharedModule } from '../shared/shared.module';
 import { PersonSelectionComponent } from './components/person-selection/person-selection.component';
 import { PersonComponent } from './components/person/person.component';
 import { CuriculumVitaeRoutingModule } from './curiculum-vitae-routing.module';
@@ -14,7 +14,6 @@ import {
     reducer,
 } from './curiculum-vitae.reducer';
 import { LoadPersonsEffects } from './effects/load-persons';
-import { LoadSkillsEffects } from './effects/load-skills';
 
 @NgModule({
     declarations: [
@@ -26,12 +25,11 @@ import { LoadSkillsEffects } from './effects/load-skills';
         CuriculumVitaeRoutingModule,
         EffectsModule.forFeature([
             LoadPersonsEffects,
-            LoadSkillsEffects,
         ]),
         MatButtonModule,
         MatTabsModule,
         StoreModule.forFeature(CURICULUM_VITAE_FEATURE_KEY, reducer),
-        UiComponentsModule,
-    ]
+        SharedModule,
+    ],
 })
 export class CuriculumVitaeModule { }

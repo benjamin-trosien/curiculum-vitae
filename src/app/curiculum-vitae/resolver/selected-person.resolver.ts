@@ -18,6 +18,6 @@ export class SelectedPersonResolver implements Resolve<void> {
     resolve(route: ActivatedRouteSnapshot): void {
         const { index } = route.params;
 
-        this.dispatcher.selectPerson(index);
+        this.dispatcher.selectPerson(Number(index));
     }
 }

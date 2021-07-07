@@ -8,10 +8,10 @@
         <div class="job">
             <mat-list *ngIf="job.start">
                 <mat-list-item>
-                    <div mat-line>{{ job.start | date:'MM.yyyy' }} -</div>
+                    <div mat-line>{{ job.start }} -</div>
                 </mat-list-item>
                 <mat-list-item>
-                    <div mat-line>{{ (job.end | date:'MM.yyyy') ?? 'Heute' }}</div>
+                    <div mat-line>{{ job.end ?? 'Heute' }}</div>
                 </mat-list-item>
             </mat-list>
 

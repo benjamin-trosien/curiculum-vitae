@@ -4,14 +4,16 @@ import {
     ChangeDetectionStrategy,
     Component,
 } from '@angular/core';
-import { Router } from '@angular/router';
 import {
     select,
     Store,
 } from '@ngrx/store';
 
-import { getPersonList } from '../../curiculum-vitae.reducer';
-import { Person } from '../../models/person';
+import { Person } from '../../../shared/models/person';
+import {
+    getPersonList,
+    getSelectedIndex,
+} from '../../curiculum-vitae.reducer';
 
 @Component({
     selector: 'app-person-selection',
@@ -20,16 +22,18 @@ import { Person } from '../../models/person';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PersonSelectionComponent {
-    personList$!: Observable<Person[]>;
+    personList$: Observable<Person[]>;
+    selected$: Observable<number>;
 
     constructor(
         private store: Store,
-        private router: Router,
+        // private router: Router,
     ) {
         this.personList$ = this.store.pipe(select(getPersonList));
+        this.selected$ = this.store.pipe(select(getSelectedIndex));
     }
 
     resolvePerson(event: any) {
-        this.router.navigate([ 'person', event.index ]);
+        // this.router.navigate([ 'person', event.index ]);
     }
 }

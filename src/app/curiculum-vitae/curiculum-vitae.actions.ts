@@ -3,8 +3,10 @@ import {
     props,
 } from '@ngrx/store';
 
-import { Person } from './models/person';
-import { Skill } from './models/skill';
+import {
+    Person,
+    Skill,
+} from '../shared/models/person';
 
 export const loadPersonListEndedAction = createAction('[App] Load Person List Ended', props<{ personList: Person[] }>());
 export const loadPersonListFailedAction = createAction('[App] Load Person List Failed', props<{ error: any }>());

@@ -4,6 +4,8 @@ import {
     Routes,
 } from '@angular/router';
 
+
+
 const routes: Routes = [
     {
         path: '',
@@ -17,6 +19,9 @@ const routes: Routes = [
     ],
     exports: [
         RouterModule,
+    ],
+    providers: [
+        // { provide: RouteReuseStrategy, useClass: CustomReuseStrategy  },
     ],
 })
 export class AppRoutingModule { }

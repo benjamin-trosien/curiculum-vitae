@@ -5,9 +5,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatTableModule } from '@angular/material/table';
 
-import { CareerComponent } from './career/career.component';
-import { RatingBarComponent } from './rating-bar/rating-bar.component';
-import { OutlineComponent } from './skills/outline.component';
+import { CareerComponent } from './components/career/career.component';
+import { OutlineComponent } from './components/outline/outline.component';
+import { RatingBarComponent } from './components/rating-bar/rating-bar.component';
 
 @NgModule({
     declarations: [
@@ -28,4 +28,4 @@ import { OutlineComponent } from './skills/outline.component';
         OutlineComponent,
     ],
 })
-export class UiComponentsModule { }
+export class SharedModule { }

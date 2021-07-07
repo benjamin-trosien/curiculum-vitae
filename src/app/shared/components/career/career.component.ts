@@ -4,7 +4,7 @@ import {
     Input,
 } from '@angular/core';
 
-import { Career } from '../../curiculum-vitae/models/career';
+import { Career } from '../../models/person';
 
 @Component({
     selector: 'app-career',

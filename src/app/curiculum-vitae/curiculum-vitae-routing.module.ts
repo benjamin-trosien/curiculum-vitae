@@ -8,23 +8,17 @@ import { PersonSelectionComponent } from './components/person-selection/person-s
 import { PersonComponent } from './components/person/person.component';
 import { PersonListResolver } from './resolver/person-list.resolver';
 import { SelectedPersonResolver } from './resolver/selected-person.resolver';
-import { SkillListResolver } from './resolver/skills-list.resolver';
 
 const routes: Routes = [
     {
         path: '',
         component: PersonSelectionComponent,
-        resolve: {
-            person: PersonListResolver,
-            skills: SkillListResolver,
-        },
+        resolve: { person: PersonListResolver },
         children: [
             {
                 path: 'person/:index',
                 component: PersonComponent,
-                resolve: {
-                    selectedPerson: SelectedPersonResolver,
-                },
+                resolve: { selectedPerson: SelectedPersonResolver },
             },
         ],
     },
@@ -36,6 +30,6 @@ const routes: Routes = [
     ],
     exports: [
         RouterModule,
-    ]
+    ],
 })
 export class CuriculumVitaeRoutingModule { }

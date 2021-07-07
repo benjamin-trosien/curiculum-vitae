@@ -4,7 +4,7 @@ import {
     Input,
 } from '@angular/core';
 
-import { Skill } from '../../curiculum-vitae/models/skill';
+import { Skill } from '../../models/person';
 
 @Component({
     selector: 'app-outline',
@@ -19,6 +19,9 @@ export class OutlineComponent {
 
     @Input()
     title: string = '';
+
+    @Input()
+    photo: string = '';
 
     @Input()
     personal: { [ key: string ]: string }[] = [];
