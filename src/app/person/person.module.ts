@@ -8,12 +8,12 @@ import { StoreModule } from '@ngrx/store';
 import { SharedModule } from '../shared/shared.module';
 import { PersonSelectionComponent } from './components/person-selection/person-selection.component';
 import { PersonComponent } from './components/person/person.component';
-import { CuriculumVitaeRoutingModule } from './curiculum-vitae-routing.module';
+import { LoadPersonsEffects } from './effects/load-persons';
+import { PersonRoutingModule } from './person-routing.module';
 import {
     CURICULUM_VITAE_FEATURE_KEY,
     reducer,
-} from './curiculum-vitae.reducer';
-import { LoadPersonsEffects } from './effects/load-persons';
+} from './person.reducer';
 
 @NgModule({
     declarations: [
@@ -22,7 +22,7 @@ import { LoadPersonsEffects } from './effects/load-persons';
     ],
     imports: [
         CommonModule,
-        CuriculumVitaeRoutingModule,
+        PersonRoutingModule,
         EffectsModule.forFeature([
             LoadPersonsEffects,
         ]),
@@ -32,4 +32,4 @@ import { LoadPersonsEffects } from './effects/load-persons';
         SharedModule,
     ],
 })
-export class CuriculumVitaeModule { }
+export class PersonModule { }

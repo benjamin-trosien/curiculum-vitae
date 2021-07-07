@@ -13,7 +13,7 @@ import { Person } from '../../../shared/models/person';
 import {
     getPersonList,
     getSelectedIndex,
-} from '../../curiculum-vitae.reducer';
+} from '../../person.reducer';
 
 @Component({
     selector: 'app-person-selection',

@@ -5,12 +5,12 @@ import {
     loadPersonListStartedAction,
     loadSkillListStartedAction,
     selectPersonAction,
-} from './curiculum-vitae.actions';
+} from './person.actions';
 
 @Injectable({
     providedIn: 'root',
 })
-export class CuriculumVitaeDispatcher {
+export class PersonDispatcher {
 
     constructor(
         private store: Store<any>,

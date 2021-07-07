@@ -14,7 +14,7 @@ import {
     loadPersonListFailedAction,
     loadSkillListEndedAction,
     selectPersonAction,
-} from './curiculum-vitae.actions';
+} from './person.actions';
 
 export const CURICULUM_VITAE_FEATURE_KEY = 'curiculumVitae';
 

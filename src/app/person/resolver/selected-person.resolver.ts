@@ -4,7 +4,7 @@ import {
     Resolve,
 } from '@angular/router';
 
-import { CuriculumVitaeDispatcher } from '../curiculum-vitae.dispatcher';
+import { PersonDispatcher } from '../person.dispatcher';
 
 @Injectable({
     providedIn: 'root',
@@ -12,7 +12,7 @@ import { CuriculumVitaeDispatcher } from '../curiculum-vitae.dispatcher';
 export class SelectedPersonResolver implements Resolve<void> {
 
     constructor(
-        private dispatcher: CuriculumVitaeDispatcher,
+        private dispatcher: PersonDispatcher,
     ) { }
 
     resolve(route: ActivatedRouteSnapshot): void {

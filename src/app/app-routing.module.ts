@@ -4,12 +4,10 @@ import {
     Routes,
 } from '@angular/router';
 
-
-
 const routes: Routes = [
     {
         path: '',
-        loadChildren: () => import('./curiculum-vitae/curiculum-vitae.module').then(m => m.CuriculumVitaeModule),
+        loadChildren: () => import('./person/person.module').then(m => m.PersonModule),
     },
 ];
 

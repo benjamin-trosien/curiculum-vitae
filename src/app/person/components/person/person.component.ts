@@ -17,7 +17,7 @@ import {
     getPhoto,
     getSkillList,
     getTitle,
-} from '../../curiculum-vitae.reducer';
+} from '../../person.reducer';
 import { PersonService } from '../../services/person.service';
 
 @Component({
