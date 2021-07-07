@@ -62,9 +62,9 @@ const getFeature = createFeatureSelector<any, CuriculumVitaeState>(CURICULUM_VIT
 export const getPersonList = createSelector(getFeature, (state) => state?.personList);
 export const getSelectedIndex = createSelector(getFeature, (state) => state?.selectedIndex);
 export const getSelectedPerson = createSelector(getPersonList, getSelectedIndex, (list, index) => list[ index ]);
-export const getCareer = createSelector(getSelectedPerson, (person) => person?.career);
+export const getCareer = createSelector(getSelectedPerson, (person) => person?.careerList);
 export const getDegreeList = createSelector(getSelectedPerson, (person) => person?.degreeList);
-export const getEducation = createSelector(getSelectedPerson, (person) => person?.education);
+export const getEducation = createSelector(getSelectedPerson, (person) => person?.educationList);
 export const getInterestList = createSelector(getSelectedPerson, (person) => person?.interestList);
 export const getName = createSelector(getSelectedPerson, (person) => person?.name);
 export const getPersonal = createSelector(getSelectedPerson, (person) => person?.personal);

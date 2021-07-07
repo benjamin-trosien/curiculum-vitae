@@ -8,7 +8,7 @@
         background-color: var(--color-primary-darker);
 
         &--filled {
-            background-color: var(--color-success);
+            background-color: var(--color-primary-lighter);
         }
 
         &:not(:last-child) {

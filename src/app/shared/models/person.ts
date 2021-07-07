@@ -17,9 +17,9 @@ export interface Career {
 }
 
 export interface Person {
-    career: Career[];
+    careerList: Career[];
     degreeList: Career[];
-    education: Career[];
+    educationList: Career[];
     interestList: Career[];
     name: string;
     personal: { [ key: string ]: string }[];
