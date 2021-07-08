@@ -6,8 +6,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 
 import { SharedModule } from '../shared/shared.module';
-import { PersonSelectionComponent } from './components/person-selection/person-selection.component';
 import { PersonComponent } from './components/person/person.component';
+import { SelectionComponent } from './components/selection/selection.component';
 import { LoadPersonsEffects } from './effects/load-persons';
 import { PersonRoutingModule } from './person-routing.module';
 import {
@@ -18,7 +18,7 @@ import {
 @NgModule({
     declarations: [
         PersonComponent,
-        PersonSelectionComponent,
+        SelectionComponent,
     ],
     imports: [
         CommonModule,

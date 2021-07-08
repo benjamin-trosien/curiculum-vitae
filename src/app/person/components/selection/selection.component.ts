@@ -16,24 +16,19 @@ import {
 } from '../../person.reducer';
 
 @Component({
-    selector: 'app-person-selection',
-    templateUrl: './person-selection.component.html',
-    styleUrls: [ './person-selection.component.scss' ],
+    selector: 'app-selection',
+    templateUrl: './selection.component.html',
+    styleUrls: [ './selection.component.scss' ],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PersonSelectionComponent {
+export class SelectionComponent {
     personList$: Observable<Person[]>;
     selected$: Observable<number>;
 
     constructor(
         private store: Store,
-        // private router: Router,
     ) {
         this.personList$ = this.store.pipe(select(getPersonList));
         this.selected$ = this.store.pipe(select(getSelectedIndex));
-    }
-
-    resolvePerson(event: any) {
-        // this.router.navigate([ 'person', event.index ]);
     }
 }

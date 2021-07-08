@@ -28,7 +28,7 @@ export interface CuriculumVitaeState {
 const initialState: CuriculumVitaeState = {
     error: undefined,
     personList: [],
-    selectedIndex: 0,
+    selectedIndex: undefined!,
     skillList: [],
 };
 

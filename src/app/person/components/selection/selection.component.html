@@ -1,0 +1,8 @@
+<nav mat-tab-nav-bar backgroundColor="primary">
+    <ng-container *ngFor="let person of personList$ | async; let index = index">
+        <a mat-tab-link [active]="(selected$ | async) == index" [routerLink]="[ 'person', index ]">
+            {{ person.name }}
+        </a>
+    </ng-container>
+</nav>
+<router-outlet></router-outlet>
