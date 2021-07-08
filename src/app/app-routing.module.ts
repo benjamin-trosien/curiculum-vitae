@@ -18,8 +18,5 @@ const routes: Routes = [
     exports: [
         RouterModule,
     ],
-    providers: [
-        // { provide: RouteReuseStrategy, useClass: CustomReuseStrategy  },
-    ],
 })
 export class AppRoutingModule { }
