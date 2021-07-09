@@ -1,30 +1,44 @@
-import { TestBed } from '@angular/core/testing';
+import { DebugElement } from '@angular/core';
+import {
+    ComponentFixture,
+    TestBed,
+} from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
-      declarations: [
-        AppComponent
-      ],
-    }).compileComponents();
-  });
+    let fixture: ComponentFixture<AppComponent>;
+    let cut: AppComponent;
+    let compiled: any;
+    let query: (selector: string) => DebugElement;
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            imports: [
+                RouterTestingModule,
+            ],
+            declarations: [
+                AppComponent,
+            ],
+        }).compileComponents();
+    });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('curiculum-vitae app is running!');
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(AppComponent);
+        cut = fixture.componentInstance;
+        compiled = fixture.nativeElement;
+        query = (selector: string) => fixture.debugElement.query(By.css(selector));
+    });
+
+    it('should create the app', () => {
+
+        expect(cut).toBeTruthy();
+    });
+
+    it('should render main outlet', () => {
+
+        expect(query('router-outlet')).toBeTruthy();
+    });
 });
