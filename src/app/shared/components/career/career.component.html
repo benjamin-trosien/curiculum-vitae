@@ -6,16 +6,19 @@
         <h3>{{ job.employer }}</h3>
 
         <div class="job">
-            <mat-list *ngIf="job.start">
+            <mat-list class="job__time" *ngIf="job.start">
                 <mat-list-item>
-                    <div mat-line>{{ job.start }} -</div>
+                    <div mat-line>{{ job.start }}</div>
+                </mat-list-item>
+                <mat-list-item>
+                    <div mat-line>-</div>
                 </mat-list-item>
                 <mat-list-item>
                     <div mat-line>{{ job.end ?? 'Heute' }}</div>
                 </mat-list-item>
             </mat-list>
 
-            <mat-list class="tasks">
+            <mat-list class="job__tasks">
                 <mat-list-item *ngFor="let task of job.tasks">
                     <mat-icon mat-list-icon>code</mat-icon>
                     <div mat-line>{{ task }}</div>

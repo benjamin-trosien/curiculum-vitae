@@ -1,3 +1,5 @@
+@import '../../../../breakpoints.scss';
+
 :host {
     display: flex;
     flex-direction: column;
@@ -30,11 +32,35 @@ section {
 
 .job {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+
+    @media only screen and (min-width: $large-mobile) {
+        flex-direction: row;
+    }
+
+    @media only print {
+        flex-direction: row;
+    }
+
+    &__time {
+        display: flex;
+        flex-direction: row;
+
+        mat-list-item {
+            text-align: center;
+        }
+    }
 
     mat-list-item {
-        height: 22px !important;
         font-size: 14px;
+
+        @media only screen and (min-width: $paper-width) {
+            height: 22px !important;
+        }
+
+        @media only print {
+            height: 22px !important;
+        }
 
         ::ng-deep .mat-line {
             white-space: normal;

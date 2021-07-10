@@ -1,4 +1,6 @@
-$space: 3mm;
+@import '../../../../breakpoints.scss';
+
+$space: 5mm;
 
 :host {
     display: block;
@@ -13,16 +15,49 @@ $space: 3mm;
     display: flex;
     flex-direction: column;
 
+    @media only screen and (min-width: $large-mobile) {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+    }
+
+    @media only screen and (min-width: $paper-width) {
+        flex-direction: column;
+    }
+
+    @media only print {
+        flex-direction: column;
+    }
+
+    section {
+        padding: $space;
+
+        p {
+            &:nth-child(odd) {
+                margin-bottom: 0;
+                line-height: 1;
+                font-weight: bold;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
     img {
         width: 100%;
         height: fit-content;
-    }
-    @media only screen and (min-width: 400px) {
-        flex-direction: row-reverse;
-        justify-content: space-between;
 
-        img {
+        @media only screen and (min-width: $large-mobile) {
             width: 50%;
+        }
+
+        @media only screen and (min-width: $paper-width) {
+            width: 100%;
+        }
+
+        @media only print {
+            width: 100%;
         }
     }
 }
@@ -44,34 +79,14 @@ h3 {
     line-height: 3;
 }
 
-section {
-    &:not(:last-child) {
-        margin-bottom: calc(#{ $space * 2 });
-    }
-}
-
-.personal {
-    padding: 0 $space;
-
-    p {
-        &:nth-child(odd) {
-            margin-bottom: 0;
-            line-height: 1;
-            font-weight: bold;
-        }
-
-        &:last-child {
-            margin-bottom: 0;
-        }
-    }
-}
-
 .skills {
+    margin-bottom: calc(#{ $space * 2 });
+
     div {
         padding: 0 $space;
 
         p {
-            margin-top: $space;
+            margin-top: 2mm;
             margin-bottom: 0;
         }
     }

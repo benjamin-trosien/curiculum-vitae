@@ -5,6 +5,7 @@ import {
     on,
 } from '@ngrx/store';
 
+import { LoadingState } from '../shared/models/loading-state';
 import {
     Person,
     Skill,
@@ -21,6 +22,7 @@ export const CURICULUM_VITAE_FEATURE_KEY = 'curiculumVitae';
 export interface CuriculumVitaeState {
     error: any,
     personList: Person[];
+    personListLoadingState: LoadingState;
     selectedIndex: number;
     skillList: Skill[];
 }
@@ -28,6 +30,7 @@ export interface CuriculumVitaeState {
 const initialState: CuriculumVitaeState = {
     error: undefined,
     personList: [],
+    personListLoadingState: LoadingState.PENDING,
     selectedIndex: undefined!,
     skillList: [],
 };
@@ -38,6 +41,12 @@ export const reducer = createReducer(
     on(loadPersonListEndedAction, (state, { personList }) => ({
         ...state,
         personList,
+        personListLoadingState: LoadingState.LOADED,
+    })),
+
+    on(loadPersonListFailedAction, (state) => ({
+        ...state,
+        personListLoadingState: LoadingState.FAILED,
     })),
 
     on(loadSkillListEndedAction, (state, { skillList }) => ({
@@ -60,6 +69,7 @@ export const reducer = createReducer(
 const getFeature = createFeatureSelector<any, CuriculumVitaeState>(CURICULUM_VITAE_FEATURE_KEY);
 
 export const getPersonList = createSelector(getFeature, (state) => state?.personList);
+export const getPersonListLoadingState = createSelector(getFeature, (state) => state?.personListLoadingState);
 export const getSelectedIndex = createSelector(getFeature, (state) => state?.selectedIndex);
 export const getSelectedPerson = createSelector(getPersonList, getSelectedIndex, (list, index) => list[ index ]);
 export const getCareer = createSelector(getSelectedPerson, (person) => person?.careerList);
