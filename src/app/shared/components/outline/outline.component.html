@@ -1,18 +1,20 @@
 <h1>{{ name }}</h1>
 <h2>{{ title }}</h2>
 
-<ng-container *ngIf="photo">
-    <img [src]="photo" alt="photo">
-</ng-container>
-
-<section class="personal">
-    <ng-container *ngFor="let info of personal">
-        <ng-container *ngFor="let item of info | keyvalue">
-            <p>{{ item.key }}</p>
-            <p>{{ item.value }}</p>
-        </ng-container>
+<div class="about">
+    <ng-container *ngIf="photo">
+        <img [src]="photo" alt="photo">
     </ng-container>
-</section>
+
+    <section class="personal">
+        <ng-container *ngFor="let info of personal">
+            <ng-container *ngFor="let item of info | keyvalue">
+                <p>{{ item.key }}</p>
+                <p>{{ item.value }}</p>
+            </ng-container>
+        </ng-container>
+    </section>
+</div>
 
 <section class="skills" *ngFor="let skill of skills">
     <h3>{{ skill.title }}</h3>

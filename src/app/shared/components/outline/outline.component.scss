@@ -9,6 +9,24 @@ $space: 3mm;
     line-height: 2;
 }
 
+.about {
+    display: flex;
+    flex-direction: column;
+
+    img {
+        width: 100%;
+        height: fit-content;
+    }
+    @media only screen and (min-width: 400px) {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+
+        img {
+            width: 50%;
+        }
+    }
+}
+
 h1 {
     margin-bottom: 0;
     padding: 0 $space;
@@ -24,11 +42,6 @@ h3 {
     padding: 0 $space;
     margin-bottom: 0;
     line-height: 3;
-}
-
-img {
-    width: 100%;
-    height: auto;
 }
 
 section {

@@ -60,7 +60,7 @@ export class PersonService {
 
     getPersonList = (): Observable<Person[]> => {
         return this.firestore
-            .collection('person', (ref) => ref.orderBy('createdAt', 'asc'))
+            .collection<any>('person', (ref) => ref.orderBy('createdAt', 'asc'))
             .valueChanges()
             .pipe(
                 map((docs = []) => docs.map(this.parsePerson)),
