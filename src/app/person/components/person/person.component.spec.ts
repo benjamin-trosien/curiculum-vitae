@@ -2,27 +2,37 @@ import {
     ComponentFixture,
     TestBed,
 } from '@angular/core/testing';
+import {
+    MockStore,
+    provideMockStore,
+} from '@ngrx/store/testing';
 
 import { PersonComponent } from './person.component';
 
-describe('LayoutComponent', () => {
-  let component: PersonComponent;
-  let fixture: ComponentFixture<PersonComponent>;
+describe('PersonComponent', () => {
+    let cut: PersonComponent;
+    let fixture: ComponentFixture<PersonComponent>;
+    let store: MockStore;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ PersonComponent ]
-    })
-    .compileComponents();
-  });
+    beforeEach(async () => {
+        await TestBed.configureTestingModule({
+            declarations: [
+                PersonComponent,
+            ],
+            providers: [
+                provideMockStore({}),
+            ],
+        }).compileComponents();
+    });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(PersonComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+    beforeEach(() => {
+        fixture = TestBed.createComponent(PersonComponent);
+        cut = fixture.componentInstance;
+        fixture.detectChanges();
+    });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+    it('should create', () => {
+
+        expect(cut).toBeTruthy();
+    });
 });

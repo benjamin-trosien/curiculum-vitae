@@ -3,7 +3,6 @@ import { Store } from '@ngrx/store';
 
 import {
     loadPersonListStartedAction,
-    loadSkillListStartedAction,
     selectPersonAction,
 } from './person.actions';
 
@@ -18,10 +17,6 @@ export class PersonDispatcher {
 
     loadPersonList(): void {
         this.store.dispatch(loadPersonListStartedAction());
-    }
-
-    loadSkillList(): void {
-        this.store.dispatch(loadSkillListStartedAction());
     }
 
     selectPerson(index: number): void {

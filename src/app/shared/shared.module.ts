@@ -6,14 +6,16 @@ import { MatListModule } from '@angular/material/list';
 import { MatTableModule } from '@angular/material/table';
 
 import { CareerComponent } from './components/career/career.component';
+import { ImprintComponent } from './components/imprint/imprint.component';
 import { OutlineComponent } from './components/outline/outline.component';
 import { RatingBarComponent } from './components/rating-bar/rating-bar.component';
 
 @NgModule({
     declarations: [
         CareerComponent,
-        RatingBarComponent,
+        ImprintComponent,
         OutlineComponent,
+        RatingBarComponent,
     ],
     imports: [
         CommonModule,
@@ -24,6 +26,7 @@ import { RatingBarComponent } from './components/rating-bar/rating-bar.component
     ],
     exports: [
         CareerComponent,
+        ImprintComponent,
         RatingBarComponent,
         OutlineComponent,
     ],

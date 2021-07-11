@@ -63,7 +63,9 @@ export class PersonService {
             .collection<any>('person', (ref) => ref.orderBy('createdAt', 'asc'))
             .valueChanges()
             .pipe(
-                map((docs = []) => docs.map(this.parsePerson)),
+                map((docs = []) => {
+                    return docs.map(this.parsePerson);
+                }),
             );
     }
 }

@@ -6,14 +6,10 @@ import {
 } from '@ngrx/store';
 
 import { LoadingState } from '../shared/models/loading-state';
-import {
-    Person,
-    Skill,
-} from '../shared/models/person';
+import { Person } from '../shared/models/person';
 import {
     loadPersonListEndedAction,
     loadPersonListFailedAction,
-    loadSkillListEndedAction,
     selectPersonAction,
 } from './person.actions';
 
@@ -24,7 +20,6 @@ export interface CuriculumVitaeState {
     personList: Person[];
     personListLoadingState: LoadingState;
     selectedIndex: number;
-    skillList: Skill[];
 }
 
 const initialState: CuriculumVitaeState = {
@@ -32,7 +27,6 @@ const initialState: CuriculumVitaeState = {
     personList: [],
     personListLoadingState: LoadingState.PENDING,
     selectedIndex: undefined!,
-    skillList: [],
 };
 
 export const reducer = createReducer(
@@ -44,19 +38,10 @@ export const reducer = createReducer(
         personListLoadingState: LoadingState.LOADED,
     })),
 
-    on(loadPersonListFailedAction, (state) => ({
-        ...state,
-        personListLoadingState: LoadingState.FAILED,
-    })),
-
-    on(loadSkillListEndedAction, (state, { skillList }) => ({
-        ...state,
-        skillList,
-    })),
-
     on(loadPersonListFailedAction, (state, { error }) => ({
         ...state,
         error,
+        personListLoadingState: LoadingState.FAILED,
     })),
 
     on(selectPersonAction, (state, { index }) => ({

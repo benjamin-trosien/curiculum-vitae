@@ -1,4 +1,7 @@
-import { DebugElement } from '@angular/core';
+import {
+    Component,
+    DebugElement,
+} from '@angular/core';
 import {
     ComponentFixture,
     TestBed,
@@ -7,6 +10,13 @@ import { By } from '@angular/platform-browser';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { AppComponent } from './app.component';
+
+@Component({
+    selector: 'app-imprint',
+    template: `IMPRINT`
+})
+class TestImprintComponent {
+}
 
 describe('AppComponent', () => {
     let fixture: ComponentFixture<AppComponent>;
@@ -21,6 +31,8 @@ describe('AppComponent', () => {
             ],
             declarations: [
                 AppComponent,
+
+                TestImprintComponent,
             ],
         }).compileComponents();
     });

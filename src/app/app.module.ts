@@ -15,6 +15,7 @@ import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { metaReducers } from './app.reducer';
+import { SharedModule } from './shared/shared.module';
 
 registerLocaleData(localeDe);
 
@@ -28,6 +29,7 @@ registerLocaleData(localeDe);
         BrowserAnimationsModule,
         BrowserModule,
         EffectsModule.forRoot([]),
+        SharedModule,
         StoreModule.forRoot({}, { metaReducers }),
     ],
     providers: [
