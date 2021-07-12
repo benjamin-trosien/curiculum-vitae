@@ -1,10 +1,8 @@
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-import { LoadingState } from '../../../shared/models/loading-state';
 import {
     Career,
     Skill,
@@ -16,7 +14,6 @@ import {
     getInterestList,
     getName,
     getPersonal,
-    getPersonListLoadingState,
     getPhoto,
     getSkillList,
     getTitle,
@@ -32,7 +29,6 @@ export class PersonComponent {
     degreeList$: Observable<Career[]>;
     education$: Observable<Career[]>;
     interestList$: Observable<Career[]>;
-    loading$: Observable<boolean>;
     skillList$: Observable<Skill[]>;
     personal$: Observable<{ [ key: string ]: string }[]>;
     photo$: Observable<string>;
@@ -51,9 +47,5 @@ export class PersonComponent {
         this.photo$ = this.store.select(getPhoto);
         this.skillList$ = this.store.select(getSkillList);
         this.title$ = this.store.select(getTitle);
-
-        this.loading$ = this.store.select(getPersonListLoadingState).pipe(
-            map((loadingState) => loadingState !== LoadingState.LOADED),
-        );
     }
 }

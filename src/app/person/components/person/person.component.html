@@ -1,55 +1,47 @@
-<ng-container *ngIf="loading$ | async; then loading else person"></ng-container>
+<div class="paper">
+    <app-outline
+        [name]="(name$ | async)!"
+        [title]="(title$ | async)!"
+        [personal]="(personal$ | async)!"
+        [photo]="(photo$ | async)!"
+        [skills]="(skillList$ | async)!"
+    ></app-outline>
+    <app-career
+        title="Berufserfahrung"
+        [career]="(career$ | async)!"
+    ></app-career>
+</div>
 
-<ng-template #loading>
-    LOADING
-</ng-template>
+<div class="paper">
+    <app-outline
+        [name]="(name$ | async)!"
+        [title]="(title$ | async)!"
+        [personal]="(personal$ | async)!"
+        [photo]="(photo$ | async)!"
+        [skills]="(skillList$ | async)!"
+    ></app-outline>
+    <app-career
+        title="Ausbildung"
+        [career]="(education$ | async)!"
+    ></app-career>
+</div>
 
-<ng-template #person>
-    <div class="paper">
-        <app-outline
-            [name]="(name$ | async)!"
-            [title]="(title$ | async)!"
-            [personal]="(personal$ | async)!"
-            [photo]="(photo$ | async)!"
-            [skills]="(skillList$ | async)!"
-        ></app-outline>
+<div class="paper">
+    <app-outline
+        [name]="(name$ | async)!"
+        [title]="(title$ | async)!"
+        [personal]="(personal$ | async)!"
+        [photo]="(photo$ | async)!"
+        [skills]="(skillList$ | async)!"
+    ></app-outline>
+    <div class="column">
         <app-career
-            title="Berufserfahrung"
-            [career]="(career$ | async)!"
+            title="Abschlüsse und Zertifikate"
+            [career]="(degreeList$ | async)!"
+        ></app-career>
+        <app-career
+            title="Persönliche Interessen"
+            [career]="(interestList$ | async)!"
         ></app-career>
     </div>
-
-    <div class="paper">
-        <app-outline
-            [name]="(name$ | async)!"
-            [title]="(title$ | async)!"
-            [personal]="(personal$ | async)!"
-            [photo]="(photo$ | async)!"
-            [skills]="(skillList$ | async)!"
-        ></app-outline>
-        <app-career
-            title="Ausbildung"
-            [career]="(education$ | async)!"
-        ></app-career>
-    </div>
-
-    <div class="paper">
-        <app-outline
-            [name]="(name$ | async)!"
-            [title]="(title$ | async)!"
-            [personal]="(personal$ | async)!"
-            [photo]="(photo$ | async)!"
-            [skills]="(skillList$ | async)!"
-        ></app-outline>
-        <div class="column">
-            <app-career
-                title="Abschlüsse und Zertifikate"
-                [career]="(degreeList$ | async)!"
-            ></app-career>
-            <app-career
-                title="Persönliche Interessen"
-                [career]="(interestList$ | async)!"
-            ></app-career>
-        </div>
-    </div>
-</ng-template>
+</div>

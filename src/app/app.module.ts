@@ -6,6 +6,14 @@ import {
 } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EffectsModule } from '@ngrx/effects';
@@ -29,6 +37,14 @@ registerLocaleData(localeDe);
         BrowserAnimationsModule,
         BrowserModule,
         EffectsModule.forRoot([]),
+        MatButtonModule,
+        MatDividerModule,
+        MatExpansionModule,
+        MatIconModule,
+        MatListModule,
+        MatProgressBarModule,
+        MatSidenavModule,
+        MatToolbarModule,
         SharedModule,
         StoreModule.forRoot({}, { metaReducers }),
     ],

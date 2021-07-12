@@ -1,4 +1,50 @@
-<router-outlet></router-outlet>
-<footer>
-    <app-imprint></app-imprint>
-</footer>
+<ng-container *ngIf="loading$ | async; then loading else content"></ng-container>
+
+<ng-template #loading>
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</ng-template>
+
+<ng-template #content>
+    <mat-toolbar color="primary">
+        <button mat-icon-button (click)="drawer.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <span>Menü</span>
+        <span class="spacer"></span>
+        </mat-toolbar>
+
+        <mat-drawer-container autosize>
+        <mat-drawer #drawer mode="over" autoFocus="false">
+            <mat-list role="list" (click)="drawer.close()">
+                <mat-list-item role="listitem">
+                    <button mat-button>
+                        Schliessen
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </mat-list-item>
+
+                <mat-list-item role="listitem" *ngFor="let person of personList$ | async; let index = index">
+                    <a mat-button (click)="drawer.close()" [routerLink]="[ '/person', index ]">
+                        {{ person.name }}
+                        <mat-icon *ngIf="(selected$ | async) == index">checked</mat-icon>
+                    </a>
+                </mat-list-item>
+
+                <span class="spacer"></span>
+
+                <mat-divider></mat-divider>
+                <mat-list-item role="listitem">
+                    <a mat-button (click)="drawer.close()" href="https://github.com/benjamin-trosien/curiculum-vitae" target="_blank">github</a>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+                <mat-list-item role="listitem">
+                    <a mat-button (click)="drawer.close()" [routerLink]="[ '/imprint' ]">Impressum</a>
+                </mat-list-item>
+            </mat-list>
+        </mat-drawer>
+
+        <div class="content">
+            <router-outlet></router-outlet>
+        </div>
+        </mat-drawer-container>
+</ng-template>

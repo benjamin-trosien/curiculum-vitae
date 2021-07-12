@@ -1,4 +1,4 @@
-@import '../../../../breakpoints.scss';
+@import '../../../../breakpoints';
 
 $space: 5mm;
 
@@ -80,7 +80,7 @@ h3 {
 }
 
 .skills {
-    margin-bottom: calc(#{ $space * 2 });
+    margin-bottom: $space;
 
     div {
         padding: 0 $space;

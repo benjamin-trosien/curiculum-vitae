@@ -7,7 +7,6 @@ import { StoreModule } from '@ngrx/store';
 
 import { SharedModule } from '../shared/shared.module';
 import { PersonComponent } from './components/person/person.component';
-import { SelectionComponent } from './components/selection/selection.component';
 import { LoadPersonsEffects } from './effects/load-persons';
 import { PersonRoutingModule } from './person-routing.module';
 import {
@@ -18,7 +17,6 @@ import {
 @NgModule({
     declarations: [
         PersonComponent,
-        SelectionComponent,
     ],
     imports: [
         CommonModule,
