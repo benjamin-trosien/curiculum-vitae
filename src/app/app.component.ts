@@ -29,7 +29,6 @@ export class AppComponent {
     personList$: Observable<Person[]>;
     selected$: Observable<number>;
 
-
     constructor(
         private store: Store,
     ) {
@@ -39,6 +38,5 @@ export class AppComponent {
         this.loading$ = this.store.select(getPersonListLoadingState).pipe(
             map((loadingState) => loadingState !== LoadingState.LOADED),
         );
-
     }
 }

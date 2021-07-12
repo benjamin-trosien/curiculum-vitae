@@ -8,6 +8,7 @@ import {
 } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { RouterTestingModule } from '@angular/router/testing';
+import { provideMockStore } from '@ngrx/store/testing';
 
 import { AppComponent } from './app.component';
 
@@ -33,6 +34,9 @@ describe('AppComponent', () => {
                 AppComponent,
 
                 TestImprintComponent,
+            ],
+            providers: [
+                provideMockStore({}),
             ],
         }).compileComponents();
     });
