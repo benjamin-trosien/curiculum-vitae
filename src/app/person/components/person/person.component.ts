@@ -1,39 +1,35 @@
 import { Observable } from 'rxjs';
 
-import { Component } from '@angular/core';
+import {
+    ChangeDetectionStrategy,
+    Component,
+} from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import {
     Career,
-    Skill,
+    Person,
 } from '../../../shared/models/person';
 import {
     getCareer,
     getDegreeList,
     getEducation,
     getInterestList,
-    getName,
-    getPersonal,
-    getPhoto,
-    getSkillList,
-    getTitle,
+    getPerson,
 } from '../../person.reducer';
 
 @Component({
     selector: 'app-person',
     templateUrl: './person.component.html',
     styleUrls: [ './person.component.scss' ],
+    changeDetection: ChangeDetectionStrategy.Default,
 })
 export class PersonComponent {
     career$: Observable<Career[]>;
     degreeList$: Observable<Career[]>;
     education$: Observable<Career[]>;
     interestList$: Observable<Career[]>;
-    skillList$: Observable<Skill[]>;
-    personal$: Observable<{ [ key: string ]: string }[]>;
-    photo$: Observable<string>;
-    name$: Observable<string>;
-    title$: Observable<string>;
+    person$: Observable<Person>;
 
     constructor(
         private store: Store,
@@ -42,10 +38,6 @@ export class PersonComponent {
         this.degreeList$ = this.store.select(getDegreeList);
         this.education$ = this.store.select(getEducation);
         this.interestList$ = this.store.select(getInterestList);
-        this.name$ = this.store.select(getName);
-        this.personal$ = this.store.select(getPersonal);
-        this.photo$ = this.store.select(getPhoto);
-        this.skillList$ = this.store.select(getSkillList);
-        this.title$ = this.store.select(getTitle);
+        this.person$ = this.store.select(getPerson);
     }
 }

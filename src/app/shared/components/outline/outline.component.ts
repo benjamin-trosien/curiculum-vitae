@@ -4,7 +4,7 @@ import {
     Input,
 } from '@angular/core';
 
-import { Skill } from '../../models/person';
+import { Person } from '../../models/person';
 
 @Component({
     selector: 'app-outline',
@@ -15,17 +15,5 @@ import { Skill } from '../../models/person';
 export class OutlineComponent {
 
     @Input()
-    name: string = '';
-
-    @Input()
-    title: string = '';
-
-    @Input()
-    photo: string = '';
-
-    @Input()
-    personal: { [ key: string ]: string }[] = [];
-
-    @Input()
-    skills: Skill[] = [];
+    person!: Person;
 }

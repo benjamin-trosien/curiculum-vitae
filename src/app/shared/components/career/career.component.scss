@@ -45,6 +45,7 @@ section {
     &__time {
         display: flex;
         flex-direction: row;
+        margin-right: 3mm;
 
         mat-list-item {
             text-align: center;

@@ -15,6 +15,6 @@ export class RatingBarComponent {
 
     @Input('rating')
     set setRating(rating: number) {
-        this.rating = rating % 6;
+        this.rating = Math.min(Math.max(rating, 0), 5);
     }
 }

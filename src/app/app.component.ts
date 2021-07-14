@@ -25,7 +25,7 @@ import { Person } from './shared/models/person';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
-    loading$: Observable<boolean>;
+    loaded$: Observable<boolean>;
     personList$: Observable<Person[]>;
     selected$: Observable<number>;
 
@@ -35,8 +35,9 @@ export class AppComponent {
         this.personList$ = this.store.pipe(select(getPersonList));
         this.selected$ = this.store.pipe(select(getSelectedIndex));
 
-        this.loading$ = this.store.select(getPersonListLoadingState).pipe(
-            map((loadingState) => loadingState !== LoadingState.LOADED),
+        this.loaded$ = this.store.pipe(
+            select(getPersonListLoadingState),
+            map((loadingState) => loadingState === LoadingState.LOADED),
         );
     }
 }
