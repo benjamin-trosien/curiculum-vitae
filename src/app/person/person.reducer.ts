@@ -1,5 +1,4 @@
 import {
-    createFeatureSelector,
     createReducer,
     createSelector,
     on,
@@ -56,13 +55,11 @@ export const reducer = createReducer(
     })),
 );
 
-
-const getFeature = createFeatureSelector<any, CuriculumVitaeState>(CURICULUM_VITAE_FEATURE_KEY);
+/* eslint-disable max-len */
+const getFeature = createSelector((state: any) => state[ CURICULUM_VITAE_FEATURE_KEY ], value => value);
 
 export const getPersonList = createSelector(getFeature, (state) => state?.personList);
-export const getPersonListLoadingState = createSelector(getFeature, (state) => {
-    return state?.personListLoadingState;
-});
+export const getPersonListLoadingState = createSelector(getFeature, (state) => state?.personListLoadingState);
 export const getIndex = createSelector(getFeature, (state) => state?.selectedIndex);
 export const getPerson = createSelector(getPersonList, getIndex, (list, index) => list[ index ]);
 export const getCareer = createSelector(getPerson, (person) => person?.careerList);
