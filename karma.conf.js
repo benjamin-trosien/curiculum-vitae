@@ -69,8 +69,8 @@ module.exports = function (config) {
         colors: true,
         logLevel: config.LOG_INFO,
         autoWatch: true,
-        browsers: process.env.NODE_ENV === 'productuion' ?
-            [ 'Chrome' ] : [ 'ChromeHeadless' ],
+        browsers: process.env.NODE_ENV === 'production' ?
+            [ 'ChromeHeadless' ] : [ 'Chrome' ],
         customLaunchers: {
             ChromeHeadless: {
                 base: 'ChromeHeadless',
