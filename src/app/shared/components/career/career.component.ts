@@ -18,5 +18,5 @@ export class CareerComponent {
     title!: string;
 
     @Input()
-    career!: Career[];
+    careerList!: Career[];
 }
