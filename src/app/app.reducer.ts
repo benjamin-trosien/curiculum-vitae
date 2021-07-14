@@ -10,7 +10,7 @@ function debug(reducer: ActionReducer<any>): ActionReducer<any> {
         const newState = reducer(state, action);
 
         // eslint-disable-next-line node/no-unsupported-features/node-builtins
-        console.group([]);
+        console.group();
         console.log('before', state);
         console.log('action', action);
         console.log('after', newState);
