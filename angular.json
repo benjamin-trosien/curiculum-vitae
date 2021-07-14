@@ -90,6 +90,10 @@
             "browserTarget": "curiculum-vitae:build"
           }
         },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {}
+        },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
