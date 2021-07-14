@@ -8,7 +8,7 @@ import { ImprintComponent } from './imprint.component';
 describe('ImprintComponent', () => {
     let cut: ImprintComponent;
     let fixture: ComponentFixture<ImprintComponent>;
-    let element: any;
+    let element: HTMLElement;
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({

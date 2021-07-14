@@ -30,5 +30,8 @@ fdescribe('SkillsComponent', () => {
         expect(cut).toBeTruthy();
     });
 
+    it('should show nothing', () => {
 
+        expect(element.innerText).toBe('');
+    });
 });

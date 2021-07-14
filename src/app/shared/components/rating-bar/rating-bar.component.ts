@@ -11,7 +11,7 @@ import {
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RatingBarComponent {
-    rating: number = 0;
+    rating = 0;
 
     @Input('rating')
     set setRating(rating: number) {

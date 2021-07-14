@@ -8,6 +8,7 @@ import {
     Skill,
 } from '../shared/models/person';
 
+/* eslint-disable max-len */
 export const loadPersonListEndedAction = createAction('[Person] Load Person List Ended', props<{ personList: Person[] }>());
 export const loadPersonListFailedAction = createAction('[Person] Load Person List Failed', props<{ error: any }>());
 export const loadPersonListStartedAction = createAction('[Person] Load Person List Started');

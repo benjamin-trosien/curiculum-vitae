@@ -50,6 +50,7 @@ $space: 5mm;
 
         @media only screen and (min-width: $large-mobile) {
             width: 50%;
+            max-width: 250px;
         }
 
         @media only screen and (min-width: $paper-width) {

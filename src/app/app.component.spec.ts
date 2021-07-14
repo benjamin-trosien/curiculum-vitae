@@ -29,9 +29,9 @@ import {
 
 import { AppComponent } from './app.component';
 import {
+    getIndex,
     getPersonList,
     getPersonListLoadingState,
-    getSelectedIndex,
 } from './person/person.reducer';
 import { LoadingState } from './shared/models/loading-state';
 
@@ -116,7 +116,7 @@ describe('AppComponent', () => {
 
             store.overrideSelector(getPersonListLoadingState, LoadingState.LOADED);
             store.overrideSelector(getPersonList, personList as any);
-            store.overrideSelector(getSelectedIndex, 0);
+            store.overrideSelector(getIndex, 0);
             store.refreshState();
             fixture.detectChanges();
 
@@ -153,7 +153,12 @@ describe('AppComponent', () => {
             let imprintButton: MatButtonHarness;
 
             beforeEach(async () => {
-                const [ [ close, cap, thor ], [ github ], [ imprint ] ] = await menuList.getItemsGroupedByDividers();
+                const [
+                    [ close, cap, thor ],
+                    [ github ],
+                    [ imprint ],
+                ] = await menuList.getItemsGroupedByDividers();
+
                 closeButton = await close.getHarness(MatButtonHarness);
                 capButton = await cap.getHarness(MatButtonHarness);
                 thorButton = await thor.getHarness(MatButtonHarness);
@@ -211,9 +216,10 @@ describe('AppComponent', () => {
 
             it('should show menu for github button', async () => {
                 const host = await githubButton.host();
+                const githubLink = 'https://github.com/benjamin-trosien/curiculum-vitae';
 
                 expect(await githubButton.getText()).toBe('github');
-                expect(await host.getAttribute('href')).toBe('https://github.com/benjamin-trosien/curiculum-vitae');
+                expect(await host.getAttribute('href')).toBe(githubLink);
             });
 
             it('should show menu for imprint button', async () => {

@@ -11,9 +11,9 @@ import {
 } from '@ngrx/store';
 
 import {
+    getIndex,
     getPersonList,
     getPersonListLoadingState,
-    getSelectedIndex,
 } from './person/person.reducer';
 import { LoadingState } from './shared/models/loading-state';
 import { Person } from './shared/models/person';
@@ -33,7 +33,7 @@ export class AppComponent {
         private store: Store,
     ) {
         this.personList$ = this.store.pipe(select(getPersonList));
-        this.selected$ = this.store.pipe(select(getSelectedIndex));
+        this.selected$ = this.store.pipe(select(getIndex));
 
         this.loaded$ = this.store.pipe(
             select(getPersonListLoadingState),

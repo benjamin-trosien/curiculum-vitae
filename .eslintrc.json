@@ -1,0 +1,15 @@
+{
+  "extends": "./node_modules/gts/",
+  "rules": {
+    "array-bracket-spacing": [ "error", "always" ],
+    "computed-property-spacing": "off",
+    "indent": [ "error", 4 ],
+    "max-len": [ "error", 100 ],
+    "new-cap": "off",
+    "@typescript-eslint/no-explicit-any": 0,
+    "object-curly-spacing": [ "error", "always" ],
+    "padded-blocks": "off",
+    "prettier/prettier": 0,
+    "require-jsdoc": "off"
+  }
+}
