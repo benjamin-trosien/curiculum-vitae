@@ -7,7 +7,7 @@ import { StoreModule } from '@ngrx/store';
 
 import { SharedModule } from '../shared/shared.module';
 import { PersonComponent } from './components/person/person.component';
-import { LoadPersonsEffects } from './effects/load-persons';
+import { LoadPersonListEffects } from './effects/load-person-list';
 import { PersonRoutingModule } from './person-routing.module';
 import {
     CURICULUM_VITAE_FEATURE_KEY,
@@ -22,7 +22,7 @@ import {
         CommonModule,
         PersonRoutingModule,
         EffectsModule.forFeature([
-            LoadPersonsEffects,
+            LoadPersonListEffects,
         ]),
         MatButtonModule,
         MatTabsModule,

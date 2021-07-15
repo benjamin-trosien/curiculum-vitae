@@ -4,7 +4,7 @@
     "array-bracket-spacing": [ "error", "always" ],
     "computed-property-spacing": "off",
     "indent": [ "error", 4 ],
-    "max-len": [ "error", 100 ],
+    "max-len": [ "error", 120 ],
     "new-cap": "off",
     "@typescript-eslint/no-explicit-any": 0,
     "object-curly-spacing": [ "error", "always" ],

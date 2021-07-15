@@ -14,7 +14,7 @@ describe('PersonService', () => {
             providers: [
                 {
                     provide: AngularFirestore,
-                    useValue: jasmine.createSpyObj('fireStore', [ 'collection' ]),
+                    useValue: jasmine.createSpyObj('AngularFirestore', [ 'collection' ]),
                 },
             ],
         });
