@@ -20,10 +20,7 @@
       "es2018",
       "dom"
     ],
-    "allowSyntheticDefaultImports": true,
-    "paths": {
-      "tslib" : ["node_modules/tslib/tslib.d.ts"]
-    }
+    "allowSyntheticDefaultImports": true
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

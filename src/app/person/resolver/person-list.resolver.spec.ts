@@ -10,6 +10,7 @@ describe('PersonListResolver', () => {
     beforeEach(() => {
         TestBed.configureTestingModule({
             providers: [
+                PersonListResolver,
                 {
                     provide: PersonDispatcher,
                     useValue: jasmine.createSpyObj('PersonDispatcher', [ 'loadPersonList' ]),

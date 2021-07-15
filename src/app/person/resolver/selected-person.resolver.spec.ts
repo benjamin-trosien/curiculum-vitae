@@ -10,6 +10,7 @@ describe('SelectedPersonResolver', () => {
     beforeEach(() => {
         TestBed.configureTestingModule({
             providers: [
+                SelectedPersonResolver,
                 {
                     provide: PersonDispatcher,
                     useValue: jasmine.createSpyObj('PersonDispatcher', [ 'selectPerson' ]),
