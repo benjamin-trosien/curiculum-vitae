@@ -7,7 +7,7 @@
     align-items: center;
     min-height: 100%;
 
-    @media only screen and (min-width: calc(#{$paper-width} + 20px)) {
+    @media only screen and (min-width: $paper-width) {
         margin: 10mm 0;
     }
 
@@ -22,12 +22,12 @@
     flex-direction: column;
     width: 100%;
 
-    @media only screen and (min-width: calc(#{$paper-width} + 20px)) {
+    @media only screen and (min-width: $paper-width) {
         flex-direction: row;
-        box-shadow: 5px 5px 15px 5px black;
         height: 297mm;
         width: $paper-width;
         margin-bottom: 10mm;
+        box-shadow: 5px 5px 15px 5px black;
     }
 
     @media only print {

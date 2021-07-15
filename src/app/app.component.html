@@ -23,11 +23,10 @@
                 </mat-list-item>
 
                 <mat-list-item role="listitem" *ngFor="let person of personList$ | async; let index = index">
-                    <a mat-button [routerLink]="[ '/person', index ]">
+                    <a mat-button  [class.selected]="(selected$ | async) === index" [routerLink]="[ '/person', index ]" >
                         {{ person.name }}
-                        <mat-icon *ngIf="(selected$ | async) == index">checked</mat-icon>
                     </a>
-                </mat-list-item>s
+                </mat-list-item>
 
                 <span class="spacer"></span>
 
