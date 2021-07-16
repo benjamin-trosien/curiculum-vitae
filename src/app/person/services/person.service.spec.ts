@@ -12,9 +12,10 @@ describe('PersonService', () => {
     beforeEach(() => {
         TestBed.configureTestingModule({
             providers: [
+                PersonService,
                 {
                     provide: AngularFirestore,
-                    useValue: jasmine.createSpyObj('fireStore', [ 'collection' ]),
+                    useValue: jasmine.createSpyObj('AngularFirestore', [ 'collection' ]),
                 },
             ],
         });

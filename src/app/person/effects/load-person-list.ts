@@ -20,12 +20,12 @@ import {
 import { PersonService } from '../services/person.service';
 
 @Injectable()
-export class LoadPersonsEffects {
+export class LoadPersonListEffects {
 
     loadPerson$ = createEffect(() => this.actions$.pipe(
         ofType(loadPersonListStartedAction),
         switchMap(() => this.service.getPersonList().pipe(
-            map((persons) => loadPersonListEndedAction({ personList: persons })),
+            map((personList) => loadPersonListEndedAction({ personList })),
             catchError((error) => of(loadPersonListFailedAction({ error }))),
         )),
     ));

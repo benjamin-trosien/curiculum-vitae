@@ -197,12 +197,11 @@ describe('AppComponent', () => {
             });
 
             it('should show menu for cap button', async () => {
-                const icon = await capButton.getHarness(MatIconHarness);
                 const host = await capButton.host();
 
-                expect(await capButton.getText()).toBe('Captain America checked');
+                expect(await capButton.getText()).toBe('Captain America');
                 expect(await host.getAttribute('href')).toBe('/person/0');
-                expect(await icon.getName()).toBe('checked');
+                expect(await host.hasClass('selected')).toBeTrue();
             });
 
             it('should show menu for thor button', async () => {
