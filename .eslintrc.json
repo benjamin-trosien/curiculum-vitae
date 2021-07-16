@@ -1,5 +1,10 @@
 {
   "extends": "./node_modules/gts/",
+  "env": {
+    "es2020": true,
+    "node": true,
+    "jasmine": true
+  },
   "rules": {
     "array-bracket-spacing": [ "error", "always" ],
     "computed-property-spacing": "off",
