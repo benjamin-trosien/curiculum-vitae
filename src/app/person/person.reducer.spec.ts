@@ -5,10 +5,12 @@ import { LoadingState } from '../shared/models/loading-state';
 import {
     loadPersonListEndedAction,
     loadPersonListFailedAction,
+    loadPersonListStartedAction,
+    selectPersonAction,
 } from './person.actions';
 import { reducer } from './person.reducer';
 
-describe('PersonReducer', () => {
+describe('person reducer', () => {
     beforeEach(() => {
         TestBed.configureTestingModule({
             providers: [
@@ -38,6 +40,26 @@ describe('PersonReducer', () => {
 
             expect(state.error).toBe('fake-error');
             expect(state.personListLoadingState).toBe(LoadingState.FAILED);
+        });
+    });
+
+    describe('#loadPersonListStartedAction', () => {
+
+        it('should set "personListLoadingState" property', () => {
+
+            const state = reducer(undefined, loadPersonListStartedAction());
+
+            expect(state.personListLoadingState).toBe(LoadingState.PENDING);
+        });
+    });
+
+    describe('#selectPersonAction', () => {
+
+        it('should set "selectedIndex" property', () => {
+
+            const state = reducer(undefined, selectPersonAction({ index: 123 }));
+
+            expect(state.selectedIndex).toBe(123);
         });
     });
 });

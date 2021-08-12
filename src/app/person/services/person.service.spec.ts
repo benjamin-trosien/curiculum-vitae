@@ -47,6 +47,22 @@ describe('PersonService', () => {
             );
         });
 
+        describe('without results', () => {
+            beforeEach(() => {
+                fireStore.collection.and.returnValue({
+                    valueChanges: () => of(),
+                } as any);
+            });
+
+            it('should return empty list', () => {
+                const valueList: any = [];
+
+                cut.getPersonList().subscribe((value) => valueList.push(value));
+
+                expect(valueList).toEqual([]);
+            });
+        });
+
         describe('with results', () => {
             beforeEach(() => {
                 const career1 = {

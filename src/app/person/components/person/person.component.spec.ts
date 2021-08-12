@@ -12,7 +12,7 @@ import {
 } from '@ngrx/store/testing';
 
 import {
-    getCareer,
+    getCareerList,
     getDegreeList,
     getEducation,
     getInterestList,
@@ -79,7 +79,7 @@ describe('PersonComponent', () => {
 
         beforeEach(() => {
             store.overrideSelector(getPerson, 'fake-person');
-            store.overrideSelector(getCareer, 'fake-career');
+            store.overrideSelector(getCareerList, 'fake-career');
             store.refreshState();
             fixture.detectChanges();
             paper = element.querySelector('.paper:nth-child(1)');

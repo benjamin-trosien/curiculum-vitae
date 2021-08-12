@@ -62,7 +62,7 @@ export const getPersonList = createSelector(getFeature, (state) => state?.person
 export const getPersonListLoadingState = createSelector(getFeature, (state) => state?.personListLoadingState);
 export const getIndex = createSelector(getFeature, (state) => state?.selectedIndex);
 export const getPerson = createSelector(getIndex, getPersonList, (index, list = []) => list[ index ]);
-export const getCareer = createSelector(getPerson, (person) => person?.careerList);
+export const getCareerList = createSelector(getPerson, (person) => person?.careerList);
 export const getDegreeList = createSelector(getPerson, (person) => person?.degreeList);
 export const getEducation = createSelector(getPerson, (person) => person?.educationList);
 export const getInterestList = createSelector(getPerson, (person) => person?.interestList);

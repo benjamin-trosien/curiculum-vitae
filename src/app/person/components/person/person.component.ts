@@ -11,7 +11,7 @@ import {
     Person,
 } from '../../../shared/models/person';
 import {
-    getCareer,
+    getCareerList,
     getDegreeList,
     getEducation,
     getInterestList,
@@ -34,7 +34,7 @@ export class PersonComponent {
     constructor(
         private store: Store,
     ) {
-        this.career$ = this.store.select(getCareer);
+        this.career$ = this.store.select(getCareerList);
         this.degreeList$ = this.store.select(getDegreeList);
         this.education$ = this.store.select(getEducation);
         this.interestList$ = this.store.select(getInterestList);
