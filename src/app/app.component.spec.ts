@@ -156,14 +156,12 @@ describe('AppComponent', () => {
                 const [
                     [ close, cap, thor ],
                     [ github ],
-                    [ imprint ],
                 ] = await menuList.getItemsGroupedByDividers();
 
                 closeButton = await close.getHarness(MatButtonHarness);
                 capButton = await cap.getHarness(MatButtonHarness);
                 thorButton = await thor.getHarness(MatButtonHarness);
                 githubButton = await github.getHarness(MatButtonHarness);
-                imprintButton = await imprint.getHarness(MatButtonHarness);
 
                 await menuButton.click();
             });
@@ -219,13 +217,6 @@ describe('AppComponent', () => {
 
                 expect(await githubButton.getText()).toBe('github');
                 expect(await host.getAttribute('href')).toBe(githubLink);
-            });
-
-            it('should show menu for imprint button', async () => {
-                const host = await imprintButton.host();
-
-                expect(await imprintButton.getText()).toBe('Impressum');
-                expect(await host.getAttribute('href')).toBe('/imprint');
             });
 
             it('should show main outlet', () => {
