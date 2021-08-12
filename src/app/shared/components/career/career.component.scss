@@ -50,6 +50,10 @@ section {
         mat-list-item {
             text-align: center;
         }
+
+        @media only screen and (min-width: $large-mobile) {
+            flex-basis: 120px;
+        }
     }
 
     mat-list-item {
