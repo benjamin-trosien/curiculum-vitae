@@ -150,7 +150,6 @@ describe('AppComponent', () => {
             let capButton: MatButtonHarness;
             let thorButton: MatButtonHarness;
             let githubButton: MatButtonHarness;
-            let imprintButton: MatButtonHarness;
 
             beforeEach(async () => {
                 const [

@@ -66,8 +66,3 @@ export const getCareer = createSelector(getPerson, (person) => person?.careerLis
 export const getDegreeList = createSelector(getPerson, (person) => person?.degreeList);
 export const getEducation = createSelector(getPerson, (person) => person?.educationList);
 export const getInterestList = createSelector(getPerson, (person) => person?.interestList);
-export const getName = createSelector(getPerson, (person) => person?.name);
-export const getPersonal = createSelector(getPerson, (person) => person?.personal);
-export const getPhoto = createSelector(getPerson, (person) => person?.photo);
-export const getSkillList = createSelector(getPerson, (person) => person?.skillList);
-export const getTitle = createSelector(getPerson, (person) => person?.title);
