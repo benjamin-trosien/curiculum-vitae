@@ -46,7 +46,7 @@ export class PersonService {
 
     private parsePerson = (rawPerson: any = {}): Person => {
         return {
-            careerList: rawPerson.career?.map(this.parseCareer),
+            careerList: rawPerson.career?.map(this.parseCareer).reverse(),
             degreeList: rawPerson.degrees?.map(this.parseCareer),
             educationList: rawPerson.education?.map(this.parseCareer),
             interestList: rawPerson.interests?.map(this.parseCareer),

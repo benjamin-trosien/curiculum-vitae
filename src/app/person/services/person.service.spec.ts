@@ -49,12 +49,19 @@ describe('PersonService', () => {
 
         describe('with results', () => {
             beforeEach(() => {
-                const career = {
-                    employer: 'employer',
-                    end: 'end',
-                    start: 'start',
-                    tasks: 'tasks',
-                    title: 'title',
+                const career1 = {
+                    employer: 'employer-1',
+                    end: 'end-1',
+                    start: 'start-1',
+                    tasks: 'tasks-1',
+                    title: 'title-1',
+                };
+                const career2 = {
+                    employer: 'employer-2',
+                    end: 'end-2',
+                    start: 'start-2',
+                    tasks: 'tasks-2',
+                    title: 'title-2',
                 };
                 const skillItem = {
                     label: 'label',
@@ -65,10 +72,10 @@ describe('PersonService', () => {
                     title: 'title',
                 };
                 const rawPerson = {
-                    career: [ career ],
-                    degrees: [ career ],
-                    education: [ career ],
-                    interests: [ career ],
+                    career: [ career1, career2 ],
+                    degrees: [ career1, career2 ],
+                    education: [ career1, career2 ],
+                    interests: [ career1, career2 ],
                     name: 'name',
                     personal: 'personal',
                     photo: 'photo',
@@ -86,38 +93,67 @@ describe('PersonService', () => {
                     {
                         careerList: [
                             {
-                                employer: 'employer',
-                                end: 'end',
-                                start: 'start',
-                                tasks: 'tasks',
-                                title: 'title',
+                                employer: 'employer-2',
+                                end: 'end-2',
+                                start: 'start-2',
+                                tasks: 'tasks-2',
+                                title: 'title-2',
                             },
+                            {
+                                employer: 'employer-1',
+                                end: 'end-1',
+                                start: 'start-1',
+                                tasks: 'tasks-1',
+                                title: 'title-1',
+                            },
+
                         ],
                         degreeList: [
                             {
-                                employer: 'employer',
-                                end: 'end',
-                                start: 'start',
-                                tasks: 'tasks',
-                                title: 'title',
+                                employer: 'employer-1',
+                                end: 'end-1',
+                                start: 'start-1',
+                                tasks: 'tasks-1',
+                                title: 'title-1',
+                            },
+                            {
+                                employer: 'employer-2',
+                                end: 'end-2',
+                                start: 'start-2',
+                                tasks: 'tasks-2',
+                                title: 'title-2',
                             },
                         ],
                         educationList: [
                             {
-                                employer: 'employer',
-                                end: 'end',
-                                start: 'start',
-                                tasks: 'tasks',
-                                title: 'title',
+                                employer: 'employer-1',
+                                end: 'end-1',
+                                start: 'start-1',
+                                tasks: 'tasks-1',
+                                title: 'title-1',
+                            },
+                            {
+                                employer: 'employer-2',
+                                end: 'end-2',
+                                start: 'start-2',
+                                tasks: 'tasks-2',
+                                title: 'title-2',
                             },
                         ],
                         interestList: [
                             {
-                                employer: 'employer',
-                                end: 'end',
-                                start: 'start',
-                                tasks: 'tasks',
-                                title: 'title',
+                                employer: 'employer-1',
+                                end: 'end-1',
+                                start: 'start-1',
+                                tasks: 'tasks-1',
+                                title: 'title-1',
+                            },
+                            {
+                                employer: 'employer-2',
+                                end: 'end-2',
+                                start: 'start-2',
+                                tasks: 'tasks-2',
+                                title: 'title-2',
                             },
                         ],
                         name: 'name',
@@ -130,7 +166,7 @@ describe('PersonService', () => {
                                 title: 'title',
                             }
                         ],
-                    }
+                    },
                 ];
 
                 cut.getPersonList().subscribe((value) => valueList.push(value));
