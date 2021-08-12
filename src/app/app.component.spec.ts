@@ -224,7 +224,7 @@ describe('AppComponent', () => {
                 expect(element.querySelector('router-outlet')).toBeTruthy();
             });
 
-            describe('with click on menu list item', () => {
+            describe('with click on menu lists', () => {
                 beforeEach(async () => {
                     const host = await menuList.host();
                     await host.click();
